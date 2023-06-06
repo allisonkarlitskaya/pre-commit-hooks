@@ -1,0 +1,30 @@
+- id: vulture
+  name: vulture
+  language: system
+  entry: vulture
+  description: Find unused Python code.
+  types: [python]
+  pass_filenames: false
+  require_serial: true
+
+- id: ruff
+  name: ruff
+  description: "Run 'ruff' for extremely fast Python linting"
+  entry: ruff check --force-exclude
+  language: system
+  'types_or': [python, pyi]
+  args: []
+  require_serial: true
+  additional_dependencies: []
+  minimum_pre_commit_version: '2.9.2'
+
+- id: mypy
+  name: mypy
+  description: "Optional static typing for Python"
+  entry: mypy
+  language: system
+  'types_or': [python, pyi]
+  args: ['--ignore-missing-imports']
+  require_serial: true
+  additional_dependencies: []
+  minimum_pre_commit_version: '2.9.2'
